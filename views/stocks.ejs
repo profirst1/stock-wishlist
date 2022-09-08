@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stocks</title>
+  </head>
+  <body>
+    <h1>You watchlist stocks</h1>
+
+    <% array1.forEach(element => {%>
+    <div style="background-color: rgb(41, 192, 222); margin: 10px">
+      <div><%= element.name %></div>
+      <div><%= element.price %></div>
+      <br />
+
+      <div style="display: flex">
+        <form action="/stock/<%= element.id%>/view-details" method="get">
+          <button type="submit">view</button>
+        </form>
+        <form action="/stock/<%= element.id%>/edit?_method=get" method="get">
+          <button type="submit">edit</button>
+        </form>
+
+        <form action="/stock/<%= element.id %>?_method=DELETE" method="post">
+          <button type="submit">delete</button>
+        </form>
+      </div>
+      <hr />
+    </div>
+
+    <% }) %>
+  </body>
+</html>
